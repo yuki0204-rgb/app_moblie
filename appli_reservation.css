@@ -1,0 +1,188 @@
+.reservation_log h3.card_title{
+	margin: 0 1.5rem;
+}
+.reservation_log h3.card_title:first-of-type{
+	margin-top: 3rem;
+}
+
+/* 予約キャンセルボタン */
+.rev_cancel_button>button{
+	padding: 0.3rem 1rem;
+	margin-top: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 0.7rem;
+    font-weight: 600;
+}
+/* 予約キャンセル期限切れ */
+.rev_cancel_button>button.cancel_limit_over{
+	background-color: silver;
+	pointer-events: none;
+    opacity: 0.6;
+}
+
+/* 過去履歴 */
+.rev_log_past>.list_data_box{
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.rev_log_past>.list_data_box.rev_canceled{
+	background-color: rgba(235, 235, 235, 0.6);
+}
+.rev_log_past .card_title_box{
+	justify-content: space-between;
+    flex-wrap: wrap;
+}
+.rev_log_past .card_title_box>div{
+	display: inline-block;
+    font-size: 0.9rem;
+    padding: 1px 10px;
+    min-width: 50px;
+    text-align: center;
+    background-color: var(--base_color);
+    color: var(--light_text);
+    border-radius: 5px;
+}
+.rev_log_past>.list_data_box.rev_canceled>.card_title_box>div{
+	background-color: gray;
+}
+
+/* 予約A */
+.reservation_a .card_title{
+	text-align: center;
+}
+.reservation_a .main_info{
+	display: block;
+}
+.rev_select{
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3rem;
+	margin-bottom: 0.5rem;
+}
+.rev_select>span{
+	display: inline-block;
+	min-width: 3.5rem;
+	font-weight: 600;
+}
+.rev_select>select{
+	font-size: 0.9rem;
+	padding: 2px;
+}
+
+.move_calendar{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+}
+.move_calendar .week_button{
+	display: inline-block;
+    font-size: 0.9rem;
+    padding: 1px 10px;
+    min-width: 50px;
+    text-align: center;
+	color: var(--light_text);
+	background-color: gray;
+    border-radius: 5px;
+}
+
+.reservation_a table th>span{
+	display: block;
+	font-size: 0.9rem;
+}
+.reservation_a table th:first-child{
+	width: 3.5rem;
+}
+.reservation_a table td>button{
+	height: 2rem;
+	border-radius: 0.3rem;
+	padding: 0.2rem;
+}
+.reservation_a table td button{
+	background-color: var(--bg_white);
+}
+.reservation_a button[disabled]{
+	background-color: silver;
+}
+.rev_icon_situation{
+	display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.rev_icon_situation>svg{
+	width: 1.3rem;
+	height: 1.3rem;
+}
+.rev_icon_situation>span{
+	margin-right: 1rem;
+}
+.overflow_box{
+	max-height: 60vh;
+    overflow-y: auto;
+}
+.overflow_box thead{
+	position: sticky;
+    top: 0;
+    background-color: var(--bg_white);
+}
+
+/* モーダル時間選択 */
+.reservation_a .rev_time_select button{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.3rem 1.5rem;
+    border-radius: 0.5rem;
+	background-color: var(--bg_white);
+	color: var(--dark_text);
+	color: var(--dark_text);
+    margin: 0.3rem auto;
+}
+.reservation_a .modal button svg{
+	width: 2rem;
+	height: 2rem;
+}
+.reservation_a .modal .rev_time_select{
+	overflow-y: auto;
+    height: 70%;
+}
+.reservation_a .modal .modal_close{
+    font-size: 1rem;
+    padding: 0.3rem 1.5rem;
+    border-radius: 0.5rem;
+}
+.rev_date_check span{
+	display: block;
+}
+.rev_date_check{
+	margin-bottom: 1rem;
+}
+
+/*処理ためにCSSを追加　 */
+
+/* 日曜日の色 */
+.sunday {   
+    color: var(--red_text);
+}
+
+/* 土曜日の色 */
+.saturday { 
+    color: var(--blue_text);
+}
+
+
+
+/* .time-slot-btn.available {
+    background-color: green;
+    color: white;
+}
+
+.time-slot-btn.unavailable {
+    background-color: red;
+    color: white;
+} */
+
+
+
+
+

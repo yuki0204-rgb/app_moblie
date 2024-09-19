@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/appli_base.css">
+    <link rel="stylesheet" href="css/appli_menu.css">
+    <link rel="stylesheet" href="css/appli_card_base.css">
+    <link rel="stylesheet" href="css/appli_modal.css">
+    <link rel="stylesheet" href="css/appli_reservation.css">
+
+    <!--Google Translate-->
+    <script type="text/javascript"
+        src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js" defer></script>
+
+    <!-- Others -->
+    <script src="js/common.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <!-- <script src="js/reservation_a.js" defer></script> -->
+    <script src="js/reservation.js" defer></script>
+
+    <title>拉麺太郎 本町店</title>
+</head>
+
+<!-- <div class="loader"></div> 確認用一時読み込み停止-->
+
+<body onload="removeIcon();">
+
+    <body onload="init(); removeIcon();">
+        <header>
+            <div class="center bg_dark_color">
+                <!--   <div class="header_logo">
+                    <img class="bg_dark_color" src="img/icon_ramen2.svg" alt="ロゴ">
+                </div>
+                <div class="header_name">
+                    <h1>ああああああああああああああああ</h1>
+                </div>
+                <div class="change_lang">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve">
+                            <g>
+                                <path class="st0"
+                                    d="M467.594,111.844c-4.563-6.656-9.344-13.047-14.469-19.203C406.156,36,335.281,0,256,0S105.844,36,58.875,92.641c-5.125,6.156-9.906,12.547-14.469,19.203C16.406,152.875,0,202.469,0,256c0,53.438,16.406,103.031,44.313,144.078c4.563,6.641,9.375,13.047,14.5,19.203C105.75,475.906,176.641,512,256,512s150.25-36.094,197.203-92.719c5.109-6.156,9.922-12.563,14.484-19.203C495.594,359.031,512,309.438,512,256C512,202.469,495.594,152.875,467.594,111.844z M463.531,243.969h-77.844c-0.844-29.375-4.813-57.25-11.281-82.719c19.391-6.031,37.422-13.438,53.516-22.125C448.594,169.359,461.313,205.281,463.531,243.969z M267.984,50.781c21.422,5.125,41.984,23.75,58.922,53.844c6.813,12.094,12.563,25.563,17.469,39.875c-23.844,5.625-49.594,9-76.391,9.813V50.781zM243.984,50.781v103.531c-26.781-0.813-52.547-4.188-76.391-9.813c4.906-14.313,10.656-27.781,17.469-39.875C202,74.531,222.578,55.906,243.984,50.781z M243.984,178.313v65.656h-93.547c0.813-26.797,4.313-52.563,10.313-76.313C186.656,173.859,214.703,177.484,243.984,178.313z M243.984,267.969v65.719c-29.266,0.813-57.297,4.438-83.234,10.656c-6-23.781-9.5-49.563-10.313-76.375H243.984z M243.984,357.688v103.469c-21.406-5.125-41.984-23.766-58.922-53.844c-6.797-12.078-12.547-25.516-17.438-39.813C191.469,361.875,217.188,358.5,243.984,357.688z M267.984,461.156V357.688c26.766,0.813,52.516,4.188,76.359,9.828c-4.891,14.297-10.641,27.734-17.438,39.797C309.969,437.406,289.406,456.031,267.984,461.156z M267.984,333.688v-65.719h93.547c-0.813,26.797-4.313,52.563-10.313,76.344C325.313,338.094,297.266,334.5,267.984,333.688z M267.984,243.969v-65.656c29.266-0.813,57.328-4.438,83.25-10.641c5.984,23.766,9.484,49.516,10.297,76.297H267.984z M412.969,119.75c-13.688,7.094-29,13.188-45.359,18.313C356.859,106.031,341.875,79,324,59.453C358.75,71.531,389.375,92.531,412.969,119.75z M187.969,59.438c-17.875,19.563-32.859,46.594-43.609,78.625c-16.375-5.125-31.703-11.219-45.391-18.313C122.609,92.531,153.219,71.516,187.969,59.438z M137.578,161.219c-6.469,25.469-10.453,53.375-11.297,82.75H48.469c2.219-38.75,14.938-74.688,35.531-104.938C100.109,147.734,118.156,155.156,137.578,161.219z M48.469,267.969h77.813c0.844,29.406,4.828,57.313,11.313,82.797c-19.406,6.047-37.422,13.484-53.516,22.203C63.406,342.703,50.672,306.688,48.469,267.969z M99.031,392.234c13.688-7.078,29-13.172,45.344-18.297c10.781,32.063,25.781,59.094,43.672,78.625C153.281,440.5,122.703,419.469,99.031,392.234z M323.938,452.563c17.875-19.531,32.875-46.563,43.656-78.609c16.313,5.125,31.609,11.203,45.281,18.281C389.281,419.469,358.688,440.5,323.938,452.563z M374.391,350.719c6.469-25.469,10.453-53.375,11.297-82.75h77.844c-2.219,38.719-15,74.656-35.688,104.906C411.75,364.172,393.75,356.75,374.391,350.719z">
+                                </path>
+                            </g>
+                        </svg></a>
+                </div>-->
+            </div>
+        </header>
+
+        <main>
+            <div class="center reservation_a">
+                <!-- ここからメインコンテンツ -->
+                <!-- 機能名 -->
+                <div class="func_title">
+                    <h2 id="func_title_name">予約</h2>
+                </div>
+
+                <div class="main_card_box">
+                    <!-- 予約名 -->
+                    <h3 class="card_title" id="reservation_name">予約名</h3>
+
+                    <div class="main_text">
+                        <!-- 予約条件 -->
+                        <div class="main_info">
+                            <div class="main_info_title">予約条件:</div>
+                            <div class="main_info_data" id="reservation_conditions"></div>
+                        </div>
+                        <!-- キャンセルポリシー あれば表示 -->
+                        <div class="main_info">
+                            <div class="main_info_title">キャンセルポリシー:</div>
+                            <div class="main_info_data" id="cancel_policy"></div>
+                        </div>
+                    </div>
+                    <form action="">
+                        <div class="rev_select">
+                            <span>コース:</span>
+                            <select name="course" id="course_select">
+                                <!-- <option value="">---</option> -->
+                                <!-- <option value="コース1">コース1</option>
+                                <option value="コース2">コース2</option> -->
+                            </select>
+                        </div>
+                        <div class="rev_select">
+                            <span id="type_group_name">グループ名:</span>
+                            <select name="type" id="type_select">
+                                <!-- <option value="種別1-1">種別1-1</option>
+                                <option value="種別1-2">種別1-2</option> -->
+                            </select>
+                        </div>
+                        <!-- 1次フェーズでは不要 -->
+                        <!-- <div class="rev_select">
+                            <span>種別2:</span>
+                            <select name="" id="">
+                                <option value="種別2-1">種別2-1</option>
+                                <option value="種別2-2">種別2-2calendar</option>
+                            </select>
+                        </div> -->
+
+                        <!-- them tu day -->
+
+                        <!-- Navigation buttons -->
+                        <div class="move_calendar ">
+                            <span class="week_button" id="prev_week"> <span>&#60;&nbsp;</span>前週 </span>
+                            <div id="notification"></div>
+                            <span class="week_button" id="next_week">次週<span>&nbsp;&#62;</span></span>
+                        </div>
+                        <div class="overflow_box">
+                            <table id="reservation_table">
+                                <thead>
+                                    <tr id="table_header">
+
+                                    </tr>
+                                </thead>
+                                <tbody id="table_body">
+
+
+                                </tbody>
+                            </table>
+
+                            <!-- ket thuc o day -->
+
+                            <!-- <div class="overflow_box">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>開始<br>時間</th>
+                                        <th><span>7/29</span><span>月</span></th>
+                                        <th><span>7/30</span><span>火</span></th>
+                                        <th><span>8/1</span><span>水</span></th>
+                                        <th><span>8/2</span><span>木</span></th>
+                                        <th><span>8/3</span><span>金</span></th>
+                                        <th><span>8/4</span><span>土</span></th>
+                                        <th><span>8/5</span><span>日</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>10:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td> 
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>11:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>12:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>13:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>14:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>15:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>16:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>17:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>18:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th>19:00</th>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_triangle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button disabled><svg>
+                                                    <use xlink:href="#icon_cross"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                        <td><button><svg>
+                                                    <use xlink:href="#icon_circle"></use>
+                                                </svg></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> -->
+
+                            <div class="rev_icon_situation">
+                                <svg>
+                                    <use xlink:href="#icon_circle"></use>
+                                </svg><span>予約可能</span>
+                                <svg>
+                                    <use xlink:href="#icon_triangle"></use>
+                                </svg><span>残り僅か</span>
+                                <svg>
+                                    <use xlink:href="#icon_cross"></use>
+                                </svg><span>予約不可</span>
+                            </div>
+
+
+                            <div class="move_calendar ">
+                                <span class="week_button" id="prev_week"> <span>&#60;&nbsp;</span>前週 </span>
+                                <div id="notification"></div>
+                                <span class="week_button" id="next_week">次週<span>&nbsp;&#62;</span></span>
+                            </div>
+
+                    </form>
+
+                    <!-- 1次フェーズでは不要 -->
+                    <!-- <div class="div_button_back">
+                        <button class="main_button_back">一覧へ戻る</button>
+                    </div> -->
+
+                </div>
+
+                <!-- 時間選択ポップアップ -->
+                <div id="myModal1" class="modal">
+                    <div class="modal-content"><!--class="modal-content" -->
+                        <div class="center">
+                            <p>開始時間を選択してください</p>
+                            <div class="rev_time_select">
+                                <!-- 入力可能単位に合わせ、表示数の切替を。表示数が多ければ自動でスライド表示になる -->
+                                <!-- <button>
+                                    <svg>
+                                        <use xlink:href="#icon_circle"></use>
+                                    </svg><span>10:00~</span>
+                                </button>
+                                <button>
+                                    <svg>
+                                        <use xlink:href="#icon_circle"></use>
+                                    </svg><span>10:15~</span>
+                                </button>
+                                <button disabled>
+                                    <svg>
+                                        <use xlink:href="#icon_cross"></use>
+                                    </svg><span>10:30~</span>
+                                </button>
+                                <button disabled>
+                                    <svg>
+                                        <use xlink:href="#icon_cross"></use>
+                                    </svg><span>10:45~</span>
+                                </button> -->
+                            </div>
+                            <button class="modal_close">閉じる</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 予約確認-->
+                <div id="myModal2" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="center">
+                            <p>下記内容で予約を確定しますか？</p>
+                            <div class="rev_date_check">
+                                <span>2024/8/1(木)</span>
+                                <span>10:00～10:30</span>
+                                <!-- <span>予約名</span> -->
+                                <span>コース名</span>
+                                <span>種別名</span>
+                                <!-- <span>種別2名</span> -->
+                            </div>
+                            <div class="div_button">
+                                <button id="no" class="botton_1">もどる</button>
+                                <button id="yes" class="botton_0">予約確定</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button><svg>
+                            <use xlink:href="#icon_cross"></use>
+                        </svg></button>
+                </div>
+
+                <!-- 予約確定 -->
+                <div id="myModal3" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="center">
+                            <p>ご予約を受け付けました。<br>
+                                詳細は予約履歴でご確認いただけます。
+                            </p>
+                            <div class="div_button">
+                                <button class="modal_close">閉じる</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 呼び出し用アイコン-->
+                <div class="hidden">
+                    <!-- 丸 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+                        <defs>
+                            <style>
+                                .cls-1,
+                                .cls-2 {
+                                    fill: none;
+                                }
+
+                                .cls-1 {
+                                    stroke: var(--black_line);
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 1.5px;
+                                }
+                            </style>
+                        </defs>
+                        <symbol id="icon_circle" viewBox="0 0 24.07 24.07">
+                            <g>
+                                <rect class="cls-2" width="24.07" height="24.07" />
+                                <circle class="cls-1" cx="12.04" cy="12.04" r="8.79" />
+                            </g>
+                        </symbol>
+                    </svg>
+                    <!-- 三角 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    stroke: var(--black_line);
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 1.5px;
+                                }
+
+                                .cls-1,
+                                .cls-2 {
+                                    fill: none;
+                                }
+                            </style>
+                        </defs>
+                        <symbol id="icon_triangle" viewBox="0 0 24.07 24.07">
+                            <rect class="cls-2" width="24.07" height="24.07" />
+                            <polygon class="cls-1" points="12.04 3.11 2.89 18.96 21.18 18.96 12.04 3.11" />
+                        </symbol>
+                    </svg>
+                    <!-- バツ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    stroke: var(--black_line);
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 1.5px;
+                                }
+
+                                .cls-1,
+                                .cls-2 {
+                                    fill: none;
+                                }
+                            </style>
+                        </defs>
+                        <symbol id="icon_cross" viewBox="0 0 24.07 24.07">
+                            <g>
+                                <rect class="cls-2" width="24.07" height="24.07" />
+                                <line class="cls-1" x1="3.88" y1="3.88" x2="20.19" y2="20.19" />
+                                <line class="cls-1" x1="20.19" y1="3.88" x2="3.88" y2="20.19" />
+                            </g>
+                        </symbol>
+                    </svg>
+                </div>
+                <!-- ここまでメインコンテンツ -->
+            </div>
+        </main>
+
+        <footer>
+            <div class="center">
+                <nav>
+                    <div class="footer_nav_box">
+                        <a href="#">
+                            <div class="nav_box_img">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46.154">
+                                    <path id="icon_ramen2" data-name="Icon ionic-md-home"
+                                        d="M22.606,50.654V35.269H34.144V50.654H45.875V27.577h7.5L28.375,4.5l-25,23.077h7.5V50.654Z"
+                                        transform="translate(-3.375 -4.5)" />
+                                </svg>
+                            </div>
+                            <div class="nav_box_title">
+                                <p>home</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="footer_nav_box">
+                        <a href="#">
+                            <div class="nav_box_img">
+                                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                                    xml:space="preserve">
+                                    <path class="st0" d="M479.476,316.977c-3.996-9.439-10.627-17.413-18.989-23.074c-8.362-5.652-18.526-8.971-29.347-8.971
+                                    c0,0-17.346,0-31.956,0c-14.009,0-31.135,0-44.755,0c-6.808,0-12.751,0-16.98,0c-2.618,0-4.574,0-5.691,0
+                                    c-0.773-0.115-1.448-0.3-2.066-0.557c-1.285-0.565-2.552-1.448-4.031-3.223c-1.095-1.325-2.247-3.144-3.325-5.527
+                                    c-1.629-3.55-3.064-8.327-4.035-14.12c-0.976-5.801-1.514-12.6-1.514-20.212c-0.004-14.243,1.872-31.268,5.77-50.058
+                                    c3.643-17.617,9.258-33.996,14.217-50.412c2.468-8.212,4.773-16.433,6.472-24.848c1.704-8.406,2.817-17.024,2.817-25.916
+                                    c0-12.398-2.521-24.274-7.086-35.064c-6.848-16.177-18.243-29.899-32.61-39.603C292.007,5.678,274.607-0.008,256.002,0
+                                    c-12.398,0-24.274,2.517-35.056,7.082c-16.181,6.853-29.904,18.244-39.608,32.61c-9.714,14.358-15.396,31.762-15.391,50.367
+                                    c0,8.892,1.108,17.51,2.808,25.916c2.569,12.618,6.442,24.813,10.278,37.175c3.846,12.353,7.678,24.866,10.419,38.085
+                                    c3.899,18.79,5.771,35.815,5.762,50.058c0.009,7.726-0.547,14.631-1.558,20.486c-0.75,4.389-1.762,8.186-2.932,11.303
+                                    c-0.874,2.34-1.828,4.282-2.79,5.836c-1.448,2.34-2.857,3.754-4.102,4.61c-1.126,0.768-2.158,1.183-3.549,1.404
+                                    c-6.504,0-42.094,0-67.458,0c-7.307,0-15.298,0-21.457,0c-6.164,0-10.491,0-10.504,0c-7.204,0-14.136,1.474-20.423,4.141
+                                    c-9.435,3.991-17.413,10.623-23.069,18.985c-5.656,8.353-8.972,18.526-8.972,29.342v105.626h13.81H483.6V337.401
+                                    C483.609,330.195,482.134,323.264,479.476,316.977z M193.569,90.059c0-8.662,1.74-16.839,4.896-24.301
+                                    c4.732-11.188,12.662-20.75,22.636-27.488c9.982-6.729,21.921-10.65,34.901-10.65c8.662,0,16.835,1.74,24.301,4.892
+                                    c11.188,4.733,20.751,12.672,27.484,22.64c6.733,9.987,10.649,21.926,10.654,34.906c0,6.587-0.826,13.342-2.265,20.433
+                                    c-2.141,10.64-5.7,22.031-9.572,34.446c-3.863,12.425-8.018,25.873-11.09,40.689c-4.208,20.31-6.34,39.056-6.345,55.666
+                                    c0.004,9.024,0.636,17.43,1.96,25.166c1.002,5.801,2.402,11.241,4.283,16.291c1.232,3.285,2.724,6.376,4.419,9.316h-87.657
+                                    c0.936-1.625,1.846-3.267,2.636-4.998c2.874-6.322,4.835-13.334,6.128-20.972c1.289-7.638,1.898-15.92,1.898-24.803
+                                    c-0.009-16.61-2.132-35.356-6.34-55.666c-4.106-19.752-10.102-37.086-14.812-52.769c-2.367-7.841-4.424-15.267-5.859-22.366
+                                    C194.394,103.402,193.569,96.646,193.569,90.059z M455.983,415.406H56.017v-78.005c0-3.47,0.697-6.702,1.952-9.66
+                                    c1.868-4.45,5.046-8.264,9.011-10.949c3.987-2.684,8.693-4.23,13.885-4.239c0.014,0,4.34,0,10.504,0c6.158,0,14.15,0,21.457,0
+                                    c21.559,0,50.43,0,62.624,0c3.651,0,5.872,0,5.872,0h0.769h147.821h0.777c0,0,2.525,0,6.76,0c1.885,0,4.19,0,6.68,0
+                                    c14.27,0,37.166,0,55.056,0c14.61,0,31.956,0,31.956,0c3.47,0.009,6.706,0.698,9.67,1.952c4.442,1.872,8.26,5.042,10.94,9.015
+                                    c2.685,3.983,4.234,8.689,4.234,13.881V415.406z">
+                                    </path>
+                                    <rect x="64.229" y="474.048" class="st0" width="383.552" height="37.952"></rect>
+                                </svg>
+                            </div>
+                            <div class="nav_box_title">
+                                <p>スタンプ</p>
+                            </div>
+                            <span class="footer_nav_badge">1</span>
+                        </a>
+                    </div>
+                    <div class="footer_nav_box">
+                        <a href="#">
+                            <div class="nav_box_img">
+                                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                                    xml:space="preserve">
+                                    <g>
+                                        <path class="st0"
+                                            d="M485.22,80.604H26.78C12.013,80.604,0,92.615,0,107.382v297.229c0,14.767,12.013,26.786,26.78,26.786h458.44
+                                        c14.767,0,26.78-12.019,26.78-26.786V107.382C512,92.615,499.987,80.604,485.22,80.604z M132.17,283.787v-4.472
+                                        c0-2.298-0.38-4.566-1.359-7.174c-0.188-0.248-18.793-25.357-18.793-48.059c0-27.05,16.988-46.685,40.394-46.685
+                                        s40.394,19.635,40.394,46.685c0,22.702-18.604,47.811-19.022,48.494c-0.751,2.166-1.132,4.433-1.132,6.739v4.472
+                                        c0,6.18,3.628,11.84,9.307,14.449l30.316,12.384c6.584,3.028,11.285,9.084,12.558,16.048l1.431,18.416H78.56l1.407-18.253
+                                        c1.294-7.128,5.998-13.184,12.518-16.18l30.442-12.446C128.542,295.627,132.17,289.967,132.17,283.787z M429.318,306.396v29.557
+                                        H266.745v-29.557H429.318z M429.318,242.793v29.558H266.745v-29.558H429.318z M231.481,208.748v-29.557h197.836v29.557H231.481z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="nav_box_title">
+                                <p>会員証</p>
+                            </div>
+                            <span class="footer_nav_badge">10</span>
+                        </a>
+                    </div>
+                    <div class="footer_nav_box">
+                        <a href="#">
+                            <div class="nav_box_img">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.667 41.667">
+                                    <path id="Icon_material-message" data-name="Icon material-message"
+                                        d="M41.667,4.167H8.333A4.161,4.161,0,0,0,4.187,8.333l-.021,37.5L12.5,37.5H41.667a4.179,4.179,0,0,0,4.167-4.167v-25a4.179,4.179,0,0,0-4.167-4.167Zm-4.167,25h-25V25h25Zm0-6.25h-25V18.75h25Zm0-6.25h-25V12.5h25Z"
+                                        transform="translate(-4.167 -4.167)" />
+                                </svg>
+                            </div>
+                            <div class="nav_box_title">
+                                <p>新着情報のおしらせ</p>
+                            </div>
+                            <span class="footer_nav_badge">99</span>
+                        </a>
+                    </div>
+                    <div class="footer_nav_box">
+                        <a href="#">
+                            <div class="nav_box_img">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 25">
+                                    <path id="Icon_ionic-md-menu" data-name="Icon ionic-md-menu"
+                                        d="M6.25,37.5h37.5V33.333H6.25Zm0-10.417h37.5V22.917H6.25Zm0-14.583v4.167h37.5V12.5Z"
+                                        transform="translate(-6.25 -12.5)" />
+                                </svg>
+                            </div>
+                            <div class="nav_box_title">
+                                <p>menu</p>
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
